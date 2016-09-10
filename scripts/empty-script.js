@@ -1,1 +1,2 @@
-console.write('Closing');
+'use strict';
+print('hello world');
