@@ -6,10 +6,9 @@ Start with common record set, change structure and apply aggregation (MongoDB)
 
 This example covers modyfing random data downloaded from `randomuser.me` using MongoDB map-reduce and aggregation framework.
 
-This allows to extract e.g. information about DOB:
+### Steps
 
-![image](https://cloud.githubusercontent.com/assets/14539/18419550/eedf67ac-785d-11e6-8823-aaae7307c6a7.png)
-
+#### Step 01
 
 Start with `step01.sh` to stream JSON data into MongoDB instance:
 
@@ -25,9 +24,22 @@ curl "http://api.randomuser.me/?results=1000&format=pretty&noinfo" | mongoimport
 2016-09-11T20:52:18.107+0200	imported 1 document
 ```
 
+![image](https://cloud.githubusercontent.com/assets/14539/18420427/b31b991a-7872-11e6-9b1a-fdcfc841a320.png)
+
+#### Step 02
+
 Normalize data with aggregation framework using `step02.sh` into a collection of documents with following schema:
 
-![image](https://cloud.githubusercontent.com/assets/14539/18420164/2fba819a-786c-11e6-9ba5-81a31c6b1ff8.png)
+![image](https://cloud.githubusercontent.com/assets/14539/18420434/d7802f82-7872-11e6-8bf5-0c777029d03c.png)
+
+#### Step 03
+
+Apply map-reduce for advanced values transformation (dates, categories) and next apply aggregation framework to transform documents structure:
+
+![image](https://cloud.githubusercontent.com/assets/14539/18420464/768342ea-7873-11e6-8cf9-84fd1ccf8c97.png)
+
+
+![image](https://cloud.githubusercontent.com/assets/14539/18420473/96e01400-7873-11e6-8cb8-00c7e23c2fd0.png)
 
 
 ## Author

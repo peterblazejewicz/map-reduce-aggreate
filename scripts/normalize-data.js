@@ -10,8 +10,8 @@
 const conn = new Mongo();
 var db = conn.getDB('test');
 //
-db.users_normalized.drop();
-db.users.aggregate([
+db.users_step02.drop();
+db.users_step01.aggregate([
     {
         $unwind: {
             path: '$results',
@@ -28,8 +28,8 @@ db.users.aggregate([
             _id: '$id',
             gender: '$results.gender',
             name: {
-                firstName: '$results.name.first',
-                lastName: '$results.name.last',
+                first: '$results.name.first',
+                last: '$results.name.last',
                 title: '$results.name.title',
                 fullName: {
                     $concat: [
@@ -71,7 +71,7 @@ db.users.aggregate([
         }
     },
     {
-        $out: 'user_normalized'
+        $out: 'users_step02'
     }
 ]);
 //
