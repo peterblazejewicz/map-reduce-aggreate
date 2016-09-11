@@ -1,13 +1,23 @@
+/**
+ * @example mongo count-users-mr.js
+ */
 'use strict';
 // client
 var client = new Mongo();
 var db = client.getDB('test');
-//
-// single key for all docs
+/**
+ * A mapper function
+ */
 var mapper = function() {
     emit('users', 1);
 };
 // just sum up all values
+/**
+ * Sums up all values
+ * @param {any} key
+ * @param {any} values
+ * @returns sump of all values
+ */
 var reducer = function(key, values) {
     return Array.sum(values);
 };
