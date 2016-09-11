@@ -10,12 +10,12 @@
 var client = new Mongo();
 var db = client.getDB('test');
 //
-load('full-name-expression.js');
-load('week-expression.js');
-load('day-of-week-expression.js');
-load('month-expression.js');
-load('quarter-expression.js');
-load('year-expression.js');
+load('expressions/full-name.js');
+load('expressions/week.js');
+load('expressions/day-of-week.js');
+load('expressions/month.js');
+load('expressions/quarter.js');
+load('expressions/year.js');
 // projection (transformation definition)
 var projection = {
     gender: 1,
