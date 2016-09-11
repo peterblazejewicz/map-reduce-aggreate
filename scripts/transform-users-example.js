@@ -41,12 +41,16 @@ var projection = {
     year: yearExpression
 };
 // transformation
-var results = db.users.aggregate([
+db.users.aggregate([
     { $project: projection },
-    { $limit: 5 }
+    { $out: 'users_updated' }
 ]);
-results.forEach(function (doc) {
-    printjson(doc);
-});
+//
+var counter = db.users_updated.find().count();
+if(counter > 1) {
+    print('Updated users collection created');
+} else {
+    print('Failed to create updated collection');
+}
 //
 quit();
