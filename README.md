@@ -11,7 +11,8 @@ This allows to extract e.g. information about DOB:
 ![image](https://cloud.githubusercontent.com/assets/14539/18419550/eedf67ac-785d-11e6-8823-aaae7307c6a7.png)
 
 
-Start with:
+Start with `step01.sh` to stream JSON data into MongoDB instance:
+
 ```bash
 curl "http://api.randomuser.me/?results=1000&format=pretty&noinfo" | mongoimport --db test --collection users --drop
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -23,6 +24,11 @@ curl "http://api.randomuser.me/?results=1000&format=pretty&noinfo" | mongoimport
 2016-09-11T20:52:18.107+0200	test.users	1.1 MB
 2016-09-11T20:52:18.107+0200	imported 1 document
 ```
+
+Normalize data with aggregation framework using `step02.sh` into a collection of documents with following schema:
+
+![image](https://cloud.githubusercontent.com/assets/14539/18420164/2fba819a-786c-11e6-9ba5-81a31c6b1ff8.png)
+
 
 ## Author
 @peterblazejewicz
