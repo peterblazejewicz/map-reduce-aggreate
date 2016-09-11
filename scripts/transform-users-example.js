@@ -15,6 +15,7 @@ load('week-expression.js');
 load('day-of-week-expression.js');
 load('month-expression.js');
 load('quarter-expression.js');
+load('year-expression.js');
 // projection (transformation definition)
 var projection = {
     gender: 1,
@@ -36,7 +37,8 @@ var projection = {
     dayOfWeek: dayOfWeekExpression,
     week: weekExpression,
     month: monthExpression,
-    quarter: quarterExpression
+    quarter: quarterExpression,
+    year: yearExpression
 };
 // transformation
 var results = db.users.aggregate([
