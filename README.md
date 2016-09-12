@@ -41,6 +41,9 @@ Apply map-reduce for advanced values transformation (dates, categories) and next
 
 ![image](https://cloud.githubusercontent.com/assets/14539/18420473/96e01400-7873-11e6-8cb8-00c7e23c2fd0.png)
 
+## TODO
+
+Rewrite everything to ES6 (as MongoDB 3.2 ships with ES6 support);
 
 ## Author
 @peterblazejewicz
